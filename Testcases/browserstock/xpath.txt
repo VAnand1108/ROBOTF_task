@@ -1,0 +1,3 @@
+//div[@class='products__product-panel-item products__product-panel-item--2']//p[contains(text(),'Management & Optimization')]/parent::div//a
+
+  //div[@class='sidenav-content sidenav-content__active']//div[@data-mobile-view="false"]

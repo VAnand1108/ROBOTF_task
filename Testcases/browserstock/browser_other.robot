@@ -36,6 +36,7 @@ tc01
        Append To List    ${others_list}     ${a}         
 
     END
+    Capture Page Screenshot
     ${output}    Set To Dictionary    ${job}    job=${others_list}
     Log    ${others_list} 
     Log    ${output} 

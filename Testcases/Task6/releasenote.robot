@@ -49,14 +49,12 @@ get the role,location and posted date
     Log    ${count_dict}
 
 store datas into excel
-    # Open Workbook    ${file_path}
+
     Create Workbook    Testcases/Task6/data.xlsx    sheet_name=Sheet1
     Create Worksheet    Sheet2
-    # Save Workbook
     ${details_dict}    Create Dictionary
     ${count_dict}    Create Dictionary
     Switch Window    NEW
-    # Scroll Element Into View    //a[@data-automation-id="jobTitle"]
     Wait Until Page Contains Element   ${j_title}    10s
     ${counter}    Get Element Count    ${j_title}
 
@@ -67,12 +65,12 @@ store datas into excel
             ${counter}    Evaluate    ${counter}+1
             Set To Dictionary    ${count_dict}    name=${title_name}    count=${counter}
             Set Active Worksheet    Sheet2
-            Append Rows To Worksheet    ${count_dict}
+            Append Rows To Worksheet    ${count_dict}    header=${True}
 
         ELSE
             Set To Dictionary    ${count_dict}    name=${title_name}    count=1
             Set Active Worksheet    Sheet2
-            Append Rows To Worksheet    ${count_dict}
+            Append Rows To Worksheet    ${count_dict}    header=${True}
         END
         ${Job_id}    Get Element Attribute    (${j_id})[${element}]    ${Attribute}
         ${Posted_date}    Get Element Attribute    (${post_date})[${element}]    ${Attribute}

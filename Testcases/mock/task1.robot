@@ -74,7 +74,7 @@ open the browser click for search icon and get the kendo-ui and store the data i
     Open Browser    ${url2}    ${browser}
     Maximize Browser Window
     Sleep    3
-    Create Workbook    Testcases/data.xlsx   sheet_name=Sheet1
+    Create Workbook    Testcases/mock/data.xlsx   sheet_name=Sheet1
     ${dic}    Create Dictionary
     Wait Until Page Contains Element    ${search_icon} 
     Click Element    ${search_icon} 
@@ -98,7 +98,6 @@ open the browser click for search icon and get the kendo-ui and store the data i
         ${pg}    Format String    ${no_of_page_Dy}    index=${counter}
         Wait Until Element Is Visible    ${pg}
         Click Element    ${pg}
-        
         FOR    ${counter}    IN RANGE    1    ${count}+1
             ${formated_linkcnt}    Format String    ${links_dy}       index=${counter}  
             ${link_atr}    Get Element Attribute    ${formated_linkcnt}    ${attribute}
@@ -108,10 +107,12 @@ open the browser click for search icon and get the kendo-ui and store the data i
                 ${formatted_loc}    Format String    ${heading}    url=${link_atr}
                 ${text}    Get Element Attribute    ${formatted_loc}    ${attribute}
                 Set To Dictionary    ${dic}   ${text}= ${link_atr} 
-                Append Rows To Worksheet    ${dic}    header=True
+                # Append Rows To Worksheet    ${dic}    header=True
                 # Append To List    ${link_list}      ${text}
                 
             END  
+            Append Rows To Worksheet    ${dic}    header=True
+
         END
         
     END

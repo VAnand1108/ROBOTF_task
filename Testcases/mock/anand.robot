@@ -17,7 +17,6 @@ ${inner_links_dy}    (((//div[@class="TK-col-18"]//div[@class="TK-col-8"]/h5)[{i
 
 
 
-
 *** Keywords ***
 sample
     Open Browser    ${ur;}    ${browser}
